@@ -1,0 +1,59 @@
+FAUCET TIMER PLUGIN - QUICK INSTALLATION GUIDE
+==============================================
+
+STEP 1: INSTALL THE PLUGIN
+---------------------------
+1. Login to your WordPress admin panel
+2. Go to Plugins → Add New
+3. Click "Upload Plugin"
+4. Choose the file: faucetlist-plugin-fixed.zip
+5. Click "Install Now"
+6. Click "Activate Plugin"
+
+STEP 2: CREATE A PAGE FOR THE TIMER
+------------------------------------
+1. Go to Pages → Add New
+2. Title: "My Faucet Timer" (or whatever you prefer)
+3. In the content area, add this shortcode:
+
+   [faucet_timer]
+
+4. Publish the page
+
+STEP 3: TEST THE FUNCTIONALITY
+-------------------------------
+1. Visit the page you just created
+2. Make sure you're logged in to WordPress
+3. You should see the faucet timer interface
+4. Try adding a test faucet site:
+   - Site Name: Test Faucet
+   - Site URL: https://example.com
+   - Timer: 5 (minutes)
+5. Click "Add Site" to test
+
+STEP 4: CUSTOMIZE (OPTIONAL)
+-----------------------------
+- Go to Settings → Faucet Timer for admin options
+- Edit the CSS in assets/faucet-timer.css for styling
+- Add the page to your navigation menu
+
+TROUBLESHOoting
+---------------
+If you get activation errors:
+1. Make sure you're using faucetlist-plugin-fixed.zip (not the original)
+2. Check that your WordPress is up to date
+3. Try deactivating other plugins temporarily
+4. Check PHP error logs in your hosting control panel
+
+SUCCESS!
+--------
+Your faucet timer should now be working. Users can:
+- Add their favorite crypto faucets
+- Set custom timer intervals
+- Click "Visit Site" to open faucets and start timers
+- Track when they can claim next
+
+For detailed documentation, see README.md
+
+Support: https://clickforcharity.net
+

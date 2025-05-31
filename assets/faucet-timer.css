@@ -1,0 +1,83 @@
+/* Faucet Timer Plugin Styles */
+.faucet-timer-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.faucet-timer-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+}
+
+.add-site-section {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 150px 120px;
+    gap: 15px;
+}
+
+.form-row input, .form-row button {
+    padding: 12px 15px;
+    border-radius: 6px;
+}
+
+.site-item {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 20px;
+}
+
+.site-item.ready {
+    border-left: 5px solid #28a745;
+}
+
+.site-item.waiting {
+    border-left: 5px solid #ffc107;
+}
+
+.btn-visit {
+    background: #007bff;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.stat-number {
+    font-size: 2em;
+    font-weight: bold;
+    color: #667eea;
+}
