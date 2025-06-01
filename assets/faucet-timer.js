@@ -111,22 +111,20 @@
     }
     
     function getSiteStatus(site) {
-        if (!site.last_visited) return 'ready';
+        if (!site.last_visited_utc) return 'ready';
         
-        const lastVisited = new Date(site.last_visited);
-        const now = new Date();
-        const timeDiff = now - lastVisited;
+        const now = new Date().getTime(); // Current time in UTC milliseconds
+        const timeDiff = now - site.last_visited_utc;
         const timerDuration = site.timer_minutes * 60 * 1000;
         
         return timeDiff >= timerDuration ? 'ready' : 'waiting';
     }
     
     function getTimeRemaining(site) {
-        if (!site.last_visited) return '00:00:00';
+        if (!site.last_visited_utc) return '00:00:00';
         
-        const lastVisited = new Date(site.last_visited);
-        const now = new Date();
-        const timeDiff = now - lastVisited;
+        const now = new Date().getTime(); // Current time in UTC milliseconds
+        const timeDiff = now - site.last_visited_utc;
         const timerDuration = site.timer_minutes * 60 * 1000;
         const remaining = timerDuration - timeDiff;
         
@@ -184,11 +182,8 @@
             },
             success: function(response) {
                 if (response.success) {
-                    const site = sites.find(s => s.id == siteId);
-                    if (site) {
-                        site.last_visited = new Date().toISOString().slice(0, 19).replace('T', ' ');
-                    }
-                    renderSites();
+                    // Reload sites to get the correct server timestamp
+                    loadSites();
                 }
             }
         });

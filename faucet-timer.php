@@ -144,6 +144,17 @@ class FaucetTimerPlugin {
             $user_id
         ));
         
+        // Convert last_visited to UTC timestamp for consistent frontend handling
+        foreach ($sites as $site) {
+            if ($site->last_visited) {
+                // Convert MySQL datetime to UTC timestamp
+                $local_time = new DateTime($site->last_visited, new DateTimeZone(wp_timezone_string()));
+                $site->last_visited_utc = $local_time->getTimestamp() * 1000; // JavaScript uses milliseconds
+            } else {
+                $site->last_visited_utc = null;
+            }
+        }
+        
         wp_send_json_success($sites);
     }
     
