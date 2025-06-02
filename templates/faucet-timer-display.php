@@ -4,7 +4,7 @@
         <p>Track your cryptocurrency faucets and PTC sites to maximize earnings!</p>
     </div>
 
-    <details class="add-site-section" open>
+    <details class="add-site-section">
         <summary class="add-site-summary">
             Add New Site <span class="add-site-arrow" aria-hidden="true">&#x25BC;</span>
         </summary>
