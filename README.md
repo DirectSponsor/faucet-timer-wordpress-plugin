@@ -5,7 +5,7 @@ A WordPress plugin that allows users to track their cryptocurrency faucets and P
 ## Features
 
 - ✅ **Personal Faucet Management**: Each user manages their own list of faucet sites
-- ✅ **Countdown Timers**: Visual countdown showing time remaining until next claim
+- ✅ **Real-Time Countdown Timers**: Live countdown in HH:MM:SS format updating every second
 - ✅ **Site Tracking**: Store site names, URLs, and custom timer intervals
 - ✅ **One-Click Visits**: Click "Visit Site" to open faucet and start countdown
 - ✅ **User-Friendly Interface**: Clean, responsive design that works on all devices
@@ -148,6 +148,12 @@ For support and updates:
 - Check WordPress admin for plugin updates
 
 ## Version History
+
+### Version 1.0.1 (Latest)
+- ✅ **FIXED**: Real-time countdown timer text updates
+- ✅ Timer text now counts down every second in HH:MM:SS format
+- ✅ Enhanced user experience with live feedback
+- ✅ Improved JavaScript timer functionality
 
 ### Version 1.0.0
 - Initial release
