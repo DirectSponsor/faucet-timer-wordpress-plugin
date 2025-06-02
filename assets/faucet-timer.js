@@ -140,8 +140,15 @@
     function updateTimers() {
         sites.forEach(function(site) {
             const status = getSiteStatus(site);
+            const timeRemaining = getTimeRemaining(site);
             const $siteItem = $(`.site-item[data-site-id="${site.id}"]`);
+            
+            // Update status classes
             $siteItem.removeClass('ready waiting').addClass(status);
+            
+            // Update timer text
+            const $timerInfo = $siteItem.find('.timer-info div');
+            $timerInfo.text(status === 'ready' ? 'Ready!' : timeRemaining);
         });
         updateStats();
     }

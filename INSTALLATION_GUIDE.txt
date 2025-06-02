@@ -40,7 +40,7 @@ STEP 4: CUSTOMIZE (OPTIONAL)
 TROUBLESHOoting
 ---------------
 If you get activation errors:
-1. Make sure you're using faucetlist-plugin-fixed.zip (not the original)
+1. Make sure you're using faucetlist-plugin.zip
 2. Check that your WordPress is up to date
 3. Try deactivating other plugins temporarily
 4. Check PHP error logs in your hosting control panel

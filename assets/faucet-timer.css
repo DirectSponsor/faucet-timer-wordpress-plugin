@@ -2,16 +2,17 @@
 .faucet-timer-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+ /*   padding: 20px; */
 }
 
 .faucet-timer-header {
     text-align: center;
-    margin-bottom: 30px;
-    padding: 20px;
+ /*   margin-bottom: 30px; */
+    padding: 5px 15px 1px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    border-radius: 10px;
+ /*   border-radius: 10px; */
+    
 }
 
 /* Updated for collapsible section */
@@ -50,7 +51,7 @@
 }
 
 .add-site-section form {
-    padding: 25px;
+    padding: 10px;
     margin-top: 0;
 }
 
