@@ -2,60 +2,24 @@
 .faucet-timer-wrapper {
     max-width: 1200px;
     margin: 0 auto;
- /*   padding: 20px; */
+    padding: 20px;
 }
 
 .faucet-timer-header {
     text-align: center;
- /*   margin-bottom: 30px; */
-    padding: 5px 15px 1px;
+    margin-bottom: 30px;
+    padding: 20px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
- /*   border-radius: 10px; */
-    
+    border-radius: 10px;
 }
 
-/* Updated for collapsible section */
 .add-site-section {
     background: #f8f9fa;
-    padding: 0;
+    padding: 25px;
     border-radius: 10px;
     margin-bottom: 30px;
-    border: 1px solid #dee2e6;
-    overflow: hidden;
 }
-
-.add-site-section[open] {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.add-site-summary {
-    display: flex;
-    align-items: center;
-    font-size: 1.2em;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 24px 25px;
-    border-bottom: 1px solid #eee;
-    user-select: none;
-    background: #f0f4fa;
-}
-
-.add-site-arrow {
-    margin-left: 10px;
-    transition: transform 0.2s;
-}
-
-.add-site-section[open] .add-site-arrow {
-    transform: rotate(180deg);
-}
-
-.add-site-section form {
-    padding: 10px;
-    margin-top: 0;
-}
-
-/* End collapsible section styles */
 
 .form-row {
     display: grid;

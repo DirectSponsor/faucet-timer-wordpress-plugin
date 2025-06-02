@@ -111,20 +111,22 @@
     }
     
     function getSiteStatus(site) {
-        if (!site.last_visited_utc) return 'ready';
+        if (!site.last_visited) return 'ready';
         
-        const now = new Date().getTime(); // Current time in UTC milliseconds
-        const timeDiff = now - site.last_visited_utc;
+        const lastVisited = new Date(site.last_visited);
+        const now = new Date();
+        const timeDiff = now - lastVisited;
         const timerDuration = site.timer_minutes * 60 * 1000;
         
         return timeDiff >= timerDuration ? 'ready' : 'waiting';
     }
     
     function getTimeRemaining(site) {
-        if (!site.last_visited_utc) return '00:00:00';
+        if (!site.last_visited) return '00:00:00';
         
-        const now = new Date().getTime(); // Current time in UTC milliseconds
-        const timeDiff = now - site.last_visited_utc;
+        const lastVisited = new Date(site.last_visited);
+        const now = new Date();
+        const timeDiff = now - lastVisited;
         const timerDuration = site.timer_minutes * 60 * 1000;
         const remaining = timerDuration - timeDiff;
         
@@ -140,15 +142,8 @@
     function updateTimers() {
         sites.forEach(function(site) {
             const status = getSiteStatus(site);
-            const timeRemaining = getTimeRemaining(site);
             const $siteItem = $(`.site-item[data-site-id="${site.id}"]`);
-            
-            // Update status classes
             $siteItem.removeClass('ready waiting').addClass(status);
-            
-            // Update timer text
-            const $timerInfo = $siteItem.find('.timer-info div');
-            $timerInfo.text(status === 'ready' ? 'Ready!' : timeRemaining);
         });
         updateStats();
     }
@@ -189,8 +184,11 @@
             },
             success: function(response) {
                 if (response.success) {
-                    // Reload sites to get the correct server timestamp
-                    loadSites();
+                    const site = sites.find(s => s.id == siteId);
+                    if (site) {
+                        site.last_visited = new Date().toISOString().slice(0, 19).replace('T', ' ');
+                    }
+                    renderSites();
                 }
             }
         });

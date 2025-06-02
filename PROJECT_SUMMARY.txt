@@ -1,0 +1,76 @@
+FAUCET TIMER PLUGIN - PROJECT SUMMARY
+=====================================
+
+Date: June 1, 2025 (Updated)
+Developer: Andy Savage (andysavage)
+Email: web@directsponsor.org
+
+PROJECT DETAILS:
+- WordPress plugin for cryptocurrency faucet timers
+- Personal faucet management with countdown timers
+- AJAX-powered interface, responsive design
+- Database storage for user-specific faucet sites
+
+GITHUB REPOSITORY:
+https://github.com/andysavage/faucet-timer-wordpress-plugin
+
+LOCAL PROJECT PATHS:
+- Main project: /home/andy/Documents/websites/clickforcharity.net/faucetlist/
+- Git repo: /home/andy/Documents/websites/clickforcharity.net/faucetlist/faucet-timer-wordpress-plugin/
+- Plugin files: faucetlist-plugin-complete.zip
+
+KEY FILES CREATED:
+- faucet-timer.php (main plugin file)
+- README.md (complete documentation)
+- INSTALLATION_GUIDE.txt (quick setup)
+- assets/faucet-timer.css
+- assets/faucet-timer.js
+- templates/faucet-timer-display.php
+- templates/admin-page.php
+
+WORDPRESS SETUP:
+- Shortcode: [faucet_timer]
+- Admin menu: Settings → Faucet Timer
+- Database table: wp_faucet_timer_sites
+
+GIT CONFIGURATION:
+- Username: andysavage
+- Email: web@directsponsor.org
+- Remote: https://github.com/andysavage/faucet-timer-wordpress-plugin.git
+- Branch: main
+
+GITHUB CLI SETUP:
+- GitHub CLI (gh) version 2.4.0 installed
+- Authenticated as: andysavage
+- Can access issues via: gh issue list
+- Can create issues via: gh issue create
+
+RECENT UPDATES:
+- June 1, 2025: Fixed timezone bug (Issue #2)
+  * Modified PHP backend to send UTC timestamps (last_visited_utc)
+  * Updated JavaScript to use UTC timestamps for timer calculations
+  * Fixed issue where timers were cutting one hour off due to timezone mismatch
+  * Commit: 6fbbb3e - "Fix timer timezone bug - implement UTC timestamp handling"
+
+GIT HOOKS CONFIGURED:
+- Post-commit hook installed to automatically mirror files
+- Files sync from git repo to parent directory after each commit
+- Located: .git/hooks/post-commit
+
+NEXT STEPS (if continuing):
+- Test plugin installation on WordPress site
+- Add more features or customizations
+- Update documentation as needed
+- Use GitHub issues to track improvements: gh issue create
+- Push updates to GitHub with: git add . && git commit -m "message" && git push
+
+STATUS: COMPLETED & UPDATED
+- Plugin code fixed and working (including timezone fix)
+- Documentation created
+- GitHub repository set up and pushed
+- GitHub CLI authenticated and configured
+- Timezone bug resolved (Issue #2)
+- Automated file mirroring configured
+- Ready for WordPress installation
+- Issue tracking available via GitHub CLI
+
