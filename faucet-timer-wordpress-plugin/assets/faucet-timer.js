@@ -13,9 +13,6 @@
             addSite();
         });
         
-        $('#sort-by-status').on('click', function() {
-            sortSites('status');
-        });
         
         $('#refresh-sites').on('click', function() {
             loadSites();
@@ -138,6 +135,9 @@
     }
     
     function updateTimers() {
+        // Sort sites by time remaining before updating display
+        sortSitesByTimeRemaining();
+        
         sites.forEach(function(site) {
             const status = getSiteStatus(site);
             const timeRemaining = getTimeRemaining(site);
@@ -150,6 +150,9 @@
             const $timerInfo = $siteItem.find('.timer-info div');
             $timerInfo.text(status === 'ready' ? 'Ready!' : timeRemaining);
         });
+        
+        // Re-render if order changed (this ensures DOM matches the sorted array)
+        renderSites();
         updateStats();
     }
     
@@ -163,19 +166,45 @@
         $('#waiting-sites').text(waitingSites);
     }
     
-    function sortSites(sortBy) {
-        if (sortBy === 'status') {
-            sites.sort((a, b) => {
-                const statusA = getSiteStatus(a);
-                const statusB = getSiteStatus(b);
-                if (statusA === 'ready' && statusB !== 'ready') return -1;
-                if (statusA !== 'ready' && statusB === 'ready') return 1;
+    function sortSitesByTimeRemaining() {
+        sites.sort((a, b) => {
+            const statusA = getSiteStatus(a);
+            const statusB = getSiteStatus(b);
+            
+            // Ready sites always come first
+            if (statusA === 'ready' && statusB !== 'ready') return -1;
+            if (statusA !== 'ready' && statusB === 'ready') return 1;
+            
+            // If both are ready, sort by name
+            if (statusA === 'ready' && statusB === 'ready') {
                 return a.site_name.localeCompare(b.site_name);
-            });
-        } else {
+            }
+            
+            // If both are waiting, sort by time remaining (shortest first)
+            const timeRemainingA = getTimeRemainingInMs(a);
+            const timeRemainingB = getTimeRemainingInMs(b);
+            
+            return timeRemainingA - timeRemainingB;
+        });
+    }
+    
+    function getTimeRemainingInMs(site) {
+        if (!site.last_visited_utc) return 0; // No visit time means ready (0ms remaining)
+        
+        const now = new Date().getTime();
+        const timeDiff = now - site.last_visited_utc;
+        const timerDuration = site.timer_minutes * 60 * 1000;
+        const remaining = timerDuration - timeDiff;
+        
+        return remaining <= 0 ? 0 : remaining;
+    }
+    
+    function sortSites(sortBy) {
+        if (sortBy === 'name') {
             sites.sort((a, b) => a.site_name.localeCompare(b.site_name));
+            renderSites();
         }
-        renderSites();
+        // Note: 'status' sorting is now automatic via sortSitesByTimeRemaining()
     }
     
     window.markAsVisited = function(siteId) {

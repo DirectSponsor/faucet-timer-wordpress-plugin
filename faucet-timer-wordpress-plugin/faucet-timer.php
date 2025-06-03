@@ -3,7 +3,7 @@
  * Plugin Name: Faucet Timer for ClickForCharity
  * Plugin URI: https://clickforcharity.net
  * Description: A personal faucet timer plugin that allows users to track their cryptocurrency faucets and PTC sites with countdown timers.
- * Version: 1.0.1
+ * Version: 1.1.0
  * Author: ClickForCharity
  * License: GPL v2 or later
  */
@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 // Define plugin constants
 define('FAUCET_TIMER_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('FAUCET_TIMER_PLUGIN_PATH', plugin_dir_path(__FILE__));
-define('FAUCET_TIMER_VERSION', '1.0.1');
+define('FAUCET_TIMER_VERSION', '1.1.0');
 
 class FaucetTimerPlugin {
     

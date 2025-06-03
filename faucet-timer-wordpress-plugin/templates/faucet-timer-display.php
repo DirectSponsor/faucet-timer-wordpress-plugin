@@ -22,9 +22,8 @@
         <div class="sites-header">
             <h4>Your Faucet Sites</h4>
             <div class="controls">
-                <button id="sort-by-status" class="btn-secondary">Sort by Status</button>
-                <button id="sort-by-name" class="btn-secondary">Sort by Name</button>
                 <button id="refresh-sites" class="btn-secondary">Refresh</button>
+                <div class="sort-info">Auto-sorted by time remaining</div>
             </div>
         </div>
         
